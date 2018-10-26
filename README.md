@@ -20,3 +20,7 @@ Real-Time Web Server Log Processing
 [Click Here to access Project Overview](./Project_Reports/Project_Overview.pdf)  
 
 
+----------------------------
+### References:  
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
+- 
