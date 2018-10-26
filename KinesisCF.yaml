@@ -1,13 +1,13 @@
 MyStream:
   Type: AWS::Kinesis::Stream
   Properties:
-    Name: MyKinesisStream
+    Name: LiveLogKinesisStream
     RetentionPeriodHours: 168
     ShardCount: 3
     StreamEncryption:
         EncryptionType: KMS
-        KeyId: !Ref myKey
+        KeyId: !Ref keyid
     Tags:
       -
         Key: Environment
-        Value: Production
+        Value: Development
