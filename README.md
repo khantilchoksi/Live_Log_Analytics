@@ -23,4 +23,4 @@ Real-Time Web Server Log Processing
 ----------------------------
 ### References:  
 - https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
-- 
+- https://kafka.apache.org/10/javadoc/
