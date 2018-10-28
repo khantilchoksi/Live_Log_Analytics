@@ -4,4 +4,5 @@ max_delay_record=300  #ms
 min_delay_response=0  #ms
 max_delay_response=700  #ms
 stream_name = 'ABC'
+region_name='us-west-1'
 window_size = 5
