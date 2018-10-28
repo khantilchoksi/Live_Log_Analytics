@@ -26,7 +26,12 @@ while 'NextShardIterator' in record_response:
     record_response = client.get_records(ShardIterator=record_response['NextShardIterator'],
                                                   Limit=2)
 
+    # print(record_response)
     for r in record_response['Records']:
+        item = {}
+        item['resource'] = r['Data'].decode().split('$')[2]
+        item['timestamp'] = r['Data'].decode().split('$')[1]
+        table.put_item(item)
         print(f"Partition Key: {r['PartitionKey']} ")
     # wait for 5 seconds
     time.sleep(1.5)
