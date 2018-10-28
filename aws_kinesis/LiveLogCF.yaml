@@ -62,12 +62,20 @@ Resources:
     Type: 'AWS::DynamoDB::Table'
     Properties:
       AttributeDefinitions:
-        - AttributeName: resource
+        - AttributeName: endpoint
           AttributeType: S
         - AttributeName: timestamp
           AttributeType: S
+        - AttributeName: ip
+          AttributeType: S
+        - AttributeName: region
+          AttributeType: S
+        - AttributeName: response_code
+          AttributeType: S
+        - AttributeName: response_time
+          AttributeType: S
       KeySchema:
-        - AttributeName: resource
+        - AttributeName: endpoint
           KeyType: HASH
         - AttributeName: timestamp
           KeyType: RANGE
