@@ -9,7 +9,7 @@ response = client.describe_stream(StreamName=c.stream_name)
 
 print(f'Describe Stream: {response}')
 
-shard_id = response['StreamDescription']['Shards'][1]['ShardId']
+shard_id = response['StreamDescription']['Shards'][0]['ShardId']
 shard_iterator = client.get_shard_iterator(StreamName=c.stream_name,
                                                       ShardId=shard_id,
                                                       ShardIteratorType='LATEST')

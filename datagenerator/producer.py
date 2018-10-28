@@ -34,6 +34,7 @@ while True:
         Data = data,
         PartitionKey = current_record[2]
     )
+    print(f'Data: {current_record} Response: {response}')
     start_point = (start_point+1) % len(clean_records)
     time.sleep(0.001*random.uniform(c.min_delay_record, c.max_delay_record))
 
