@@ -1,4 +1,4 @@
-import boto3, csv, random
+import boto3, csv, random, time
 import conf as c
 
 client = boto3.client('kinesis', region_name='us-east-1')
@@ -24,6 +24,14 @@ print([random.choice(clean_records) for i in range(10)])
 start_point = random.randint(0, len(clean_records)-1)
 
 while True:
-
+    current_record = clean_records[start_point]
+    data  = bytes(current_record)
+    print(data)
+    response = client.put_records(
+        StreamName = c.stream_name,
+        Data = data,
+        PartitionKey = current_record[2]
+    )
+    start_point = (start_point+1) % len(clean_records)
     time.sleep(random.uniform(c.min_delay_record, c.max_delay_record))
 
