@@ -1,5 +1,5 @@
 import boto3, csv, random, time
-import conf as c
+import ../conf as c
 
 client = boto3.client('kinesis', region_name=c.region_name)
 
