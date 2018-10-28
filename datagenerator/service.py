@@ -33,5 +33,5 @@ while True:
         PartitionKey = current_record[2]
     )
     start_point = (start_point+1) % len(clean_records)
-    time.sleep(random.uniform(c.min_delay_record, c.max_delay_record))
+    time.sleep(0.001*random.uniform(c.min_delay_record, c.max_delay_record))
 
