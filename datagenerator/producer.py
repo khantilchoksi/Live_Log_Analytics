@@ -28,12 +28,13 @@ start_point = random.randint(0, len(clean_records)-1)
 while True:
     current_record = clean_records[start_point]
     current_record = [str(i) for i in current_record]
-    data  = "".join(current_record).encode('utf-8')
+    data  = "$".join(current_record).encode('utf-8')
     response = client.put_record(
         StreamName = c.stream_name,
         Data = data,
         PartitionKey = current_record[2]
     )
+    print(f'Data: {current_record} Response: {response}')
     start_point = (start_point+1) % len(clean_records)
     time.sleep(0.001*random.uniform(c.min_delay_record, c.max_delay_record))
 
