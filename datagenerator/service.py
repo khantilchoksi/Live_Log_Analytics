@@ -19,15 +19,15 @@ for record in raw_records:
     curr_record[-1] = round(curr_record[-1], 2)
     clean_records.append(curr_record)
 
-print([random.choice(clean_records) for i in range(10)])
+# print([random.choice(clean_records) for i in range(10)])
 
 start_point = random.randint(0, len(clean_records)-1)
 
 while True:
     current_record = clean_records[start_point]
-    data  = bytes(current_record)
-    print(data)
-    response = client.put_records(
+    current_record = [str(i) for i in current_record]
+    data  = "".join(current_record).encode('utf-8')
+    response = client.put_record(
         StreamName = c.stream_name,
         Data = data,
         PartitionKey = current_record[2]
