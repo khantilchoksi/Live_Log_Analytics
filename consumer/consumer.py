@@ -8,7 +8,7 @@ import conf as c
 client = boto3.client('kinesis', region_name=c.region_name)
 response = client.describe_stream(StreamName=c.stream_name)
 # DynamoDB
-dynamodb = boto3.resource('dynamodb')
+dynamodb = boto3.resource('dynamodb', region_name=c.region_name)
 table = dynamodb.Table(c.table_name)
 
 print(f'Describe Stream: {response}')
@@ -31,7 +31,7 @@ while 'NextShardIterator' in record_response:
         item = {}
         item['resource'] = r['Data'].decode().split('$')[2]
         item['timestamp'] = r['Data'].decode().split('$')[1]
-        table.put_item(item)
+        table.put_item(Item=item)
         print(f"Partition Key: {r['PartitionKey']} ")
     # wait for 5 seconds
     time.sleep(1.5)
