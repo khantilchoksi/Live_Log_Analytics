@@ -1,7 +1,6 @@
 import boto3
-import time
-sys.path.append("..")
 import conf as c
+import time
 
 client = boto3.client('kinesis', region_name=c.region_name)
 response = client.describe_stream(StreamName=c.stream_name)
