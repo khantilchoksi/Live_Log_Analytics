@@ -3,8 +3,12 @@ import time
 sys.path.append("..")
 import conf as c
 
+# Kiniesis client
 client = boto3.client('kinesis', region_name=c.region_name)
 response = client.describe_stream(StreamName=c.stream_name)
+# DynamoDB
+dynamodb = boto3.resource('dynamodb')
+table = dynamodb.Table(c.table_name)
 
 # print(response)
 
@@ -22,5 +26,9 @@ while 'NextShardIterator' in record_response:
                                                   Limit=2)
 
     print(record_response)
+    item = {}
+    item['resource'] = record_response['Data'].decode().split('$')[2]
+    item['timestamp'] = record_response['Data'].decode().split('$')[1]
+    table.put_item(item)
     # wait for 5 seconds
     time.sleep(1.5)
