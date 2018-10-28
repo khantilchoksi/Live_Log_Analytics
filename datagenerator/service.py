@@ -1,7 +1,7 @@
 import boto3, csv, random, time
 import conf as c
 
-client = boto3.client('kinesis', region_name='us-east-1')
+client = boto3.client('kinesis', region_name=c.region_name)
 
 with open(c.datafile) as csvfile:
     reader = csv.DictReader(csvfile)
