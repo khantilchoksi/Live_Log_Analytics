@@ -1,0 +1,13 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Create Cloud Formation Stack for Kinesis Log Stream
+
+Resources:
+  KinesisStream:
+    Type: 'AWS::Kinesis::Stream'
+    Properties:
+      ShardCount: '4'
+
+Outputs:
+  StreamName:
+    Description: Logs stream of Kinesis
+    Value: !Ref KinesisStream
