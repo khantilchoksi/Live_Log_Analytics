@@ -23,7 +23,7 @@ Real-Time Web Server Log Processing
 ----------------------------------------------------------------------------------  
 
 ## Milestone Project Status Report (Quad Chart)  
-[Click Here to access Project Overview](./Project_Reports/Project_Status_Report.pdf)  
+[Click Here to access Project Status Report](./Project_Reports/Project_Status_Report.pdf)  
 
 Steps to setup the Kinesis pipeline with DynamoDB  
 - Make sure you are in US-WEST-2 AWS Region  
