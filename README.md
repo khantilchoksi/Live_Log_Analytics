@@ -39,8 +39,8 @@ Steps to setup the Kinesis pipeline with DynamoDB
 
 
 ----------------------------
-### References:  
-- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
-- https://kafka.apache.org/10/javadoc/
-- https://kafka-python.readthedocs.io/en/master/apidoc/modules.html  
+### References:   
 - Web log data https://www.kaggle.com/shawon10/web-log-dataset
+- https://kafka.apache.org/10/javadoc/  
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
+- https://kafka-python.readthedocs.io/en/master/apidoc/modules.html    
