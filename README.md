@@ -36,6 +36,10 @@ Steps to setup the Kinesis pipeline with DynamoDB
 - python producer.py  
 - python consumer.py `<shard_id>`
 
+Screenshots:  
+- [Infrastructure]](./Screenshot/Screenshot4.png)
+- [Producer & Consumer]  Kafka](./Screenshot/Screenshot2.png)
+- [DynamoDB](./Screenshot/Screenshot1.png)
 
 
 ----------------------------
