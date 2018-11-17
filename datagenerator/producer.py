@@ -24,7 +24,8 @@ for record in raw_records:
 
 # print([random.choice(clean_records) for i in range(10)])
 
-start_point = random.randint(0, len(clean_records)-1)
+#start_point = random.randint(0, len(clean_records)-1)
+start_point = 0
 
 try:
     while True:
