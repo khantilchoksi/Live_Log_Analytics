@@ -106,3 +106,4 @@ venv.bak/
 .DS_Store
 .class
 .vscode/
+__pycache__/
