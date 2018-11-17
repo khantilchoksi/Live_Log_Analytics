@@ -3,6 +3,7 @@ import sys
 import json
 sys.path.append("..")
 import conf as c
+import json
 
 client = boto3.client('kinesis', region_name=c.region_name)
 
@@ -15,17 +16,17 @@ clean_records = []
 for record in raw_records:
     curr_record = list(record.values())
     curr_record[1] = curr_record[1][1:]
-    cleaned_endpoint = curr_record[2].split(".")[0]
-    cleaned_endpoint = cleaned_endpoint.split("/")[-1]
-    curr_record[2] = cleaned_endpoint
+    # cleaned_endpoint = curr_record[2].split(".")[0]
+    # cleaned_endpoint = cleaned_endpoint.split("/")[-1]
+    # curr_record[2] = cleaned_endpoint
     curr_record.append(random.uniform(c.min_delay_response, c.max_delay_response))
     curr_record[-1] = round(curr_record[-1], 2)
     clean_records.append(curr_record)
 
 # print([random.choice(clean_records) for i in range(10)])
 
-#start_point = random.randint(0, len(clean_records)-1)
-start_point = 0
+start_point = random.randint(0, len(clean_records)-1)
+possible_endpoints = ['home','contest','login','submission','result']
 
 try:
     while True:
@@ -35,7 +36,7 @@ try:
         data  = {
             'ip': current_record[0],
             'timestamp': current_record[1],
-            'endpoint': current_record[2],
+            'endpoint': possible_endpoints[random.randint(0, len(possible_endpoints)-1)],
             'response_code': current_record[3],
             'response_time': current_record[4]
         }
