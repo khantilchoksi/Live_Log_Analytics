@@ -37,6 +37,8 @@ Steps to setup the Kinesis pipeline with DynamoDB
 - python consumer.py `<shard_id>`
 
 
+- java -cp ./target/classes com.amazonaws.services.kinesis.samples.datavis.WebServer 80 ./wwwroot LiveLogAnalysis-LogsDynamoDBTable-45IZ0TGOHM5L us-west-2
+
 
 ----------------------------
 ### References:  
