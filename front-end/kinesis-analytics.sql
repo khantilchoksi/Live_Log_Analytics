@@ -36,19 +36,36 @@
 
 -- HOME & LOGIN STREAM
 
-CREATE OR REPLACE STREAM "LOGIN_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+-- CREATE OR REPLACE STREAM "LOGIN_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+--     COL_timestamp varchar(32));
+    
+-- CREATE OR REPLACE PUMP "LOGIN_PUMP" AS INSERT INTO "LOGIN_STREAM" 
+--     SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+--         FROM "SOURCE_SQL_STREAM_001"
+--         WHERE "endpoint" LIKE 'login';
+        
+        
+-- CREATE OR REPLACE STREAM "HOME_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+--     COL_timestamp varchar(32));
+    
+-- CREATE OR REPLACE PUMP "HOME_PUMP" AS INSERT INTO "HOME_STREAM" 
+--     SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+--         FROM "SOURCE_SQL_STREAM_001"
+--         WHERE "endpoint" LIKE 'home';
+
+CREATE OR REPLACE STREAM "LOGIN_STREAM" (logtime timestamp, ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
     COL_timestamp varchar(32));
     
 CREATE OR REPLACE PUMP "LOGIN_PUMP" AS INSERT INTO "LOGIN_STREAM" 
-    SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+    SELECT STREAM "ROWTIME", "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
         FROM "SOURCE_SQL_STREAM_001"
         WHERE "endpoint" LIKE 'login';
         
         
-CREATE OR REPLACE STREAM "HOME_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+CREATE OR REPLACE STREAM "HOME_STREAM" (logtime timestamp, ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
     COL_timestamp varchar(32));
     
 CREATE OR REPLACE PUMP "HOME_PUMP" AS INSERT INTO "HOME_STREAM" 
-    SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
-        FROM "SOURCE_SQL_STREAM_001"
+    SELECT STREAM LOCALTIMESTAMP, "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+        FROM "SOURCE_SQL_STREAM_001";
         WHERE "endpoint" LIKE 'home';
