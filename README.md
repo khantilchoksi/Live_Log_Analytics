@@ -23,7 +23,7 @@ Real-Time Web Server Log Processing
 ----------------------------------------------------------------------------------  
 
 ## Milestone Project Status Report (Quad Chart)  
-[Click Here to access Project Overview](./Project_Reports/Project_Overview.pdf)  
+[Click Here to access Project Status Report](./Project_Reports/Project_Status_Report.pdf)  
 
 Steps to setup the Kinesis pipeline with DynamoDB  
 - Make sure you are in US-WEST-2 AWS Region  
@@ -36,13 +36,17 @@ Steps to setup the Kinesis pipeline with DynamoDB
 - python producer.py  
 - python consumer.py `<shard_id>`
 
+Screenshots:  
+- [Infrastructure](./Screenshot/Screenshot4.png)
+- [Producer & Consumer - Kafka](./Screenshot/Screenshot2.png)
+- [DynamoDB](./Screenshot/Screenshot1.png)
 
 - java -cp ./target/classes com.amazonaws.services.kinesis.samples.datavis.WebServer 80 ./wwwroot LiveLogAnalysis-LogsDynamoDBTable-45IZ0TGOHM5L us-west-2
 
 
 ----------------------------
-### References:  
-- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
-- https://kafka.apache.org/10/javadoc/
-- https://kafka-python.readthedocs.io/en/master/apidoc/modules.html  
+### References:   
 - Web log data https://www.kaggle.com/shawon10/web-log-dataset
+- https://kafka.apache.org/10/javadoc/  
+- https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/aws-resource-kinesis-stream.html#aws-resource-kinesis-stream-examples  
+- https://kafka-python.readthedocs.io/en/master/apidoc/modules.html    
