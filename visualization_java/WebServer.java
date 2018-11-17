@@ -51,6 +51,7 @@ public class WebServer {
                     + " <port number> <directory for static content> <DynamoDB table name> <region>");
             System.exit(1);
         }
+        
         Server server = new Server(Integer.parseInt(args[0]));
         String wwwroot = args[1];
         String countsTableName = args[2];
