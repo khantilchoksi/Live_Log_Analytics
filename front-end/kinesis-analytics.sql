@@ -27,9 +27,28 @@
 -- STREAM (in-application): a continuously updated entity that you can SELECT from and INSERT into like a TABLE
 -- PUMP: an entity used to continuously 'SELECT ... FROM' a source STREAM, and INSERT SQL results into an output STREAM
 -- Create output stream, which can be used to send to a destination
-CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (data VARCHAR(5000));
--- Create pump to insert into output 
-CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
--- Select all columns from source stream
-SELECT STREAM data
-FROM "SOURCE_SQL_STREAM_001";
+-- CREATE OR REPLACE STREAM "DESTINATION_SQL_STREAM" (data VARCHAR(5000));
+-- -- Create pump to insert into output 
+-- CREATE OR REPLACE PUMP "STREAM_PUMP" AS INSERT INTO "DESTINATION_SQL_STREAM"
+-- -- Select all columns from source stream
+-- SELECT STREAM data
+-- FROM "SOURCE_SQL_STREAM_001";
+
+-- HOME & LOGIN STREAM
+
+CREATE OR REPLACE STREAM "LOGIN_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+    COL_timestamp varchar(32));
+    
+CREATE OR REPLACE PUMP "LOGIN_PUMP" AS INSERT INTO "LOGIN_STREAM" 
+    SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+        FROM "SOURCE_SQL_STREAM_001"
+        WHERE "endpoint" LIKE 'login';
+        
+        
+CREATE OR REPLACE STREAM "HOME_STREAM" (ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+    COL_timestamp varchar(32));
+    
+CREATE OR REPLACE PUMP "HOME_PUMP" AS INSERT INTO "HOME_STREAM" 
+    SELECT STREAM "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
+        FROM "SOURCE_SQL_STREAM_001"
+        WHERE "endpoint" LIKE 'home';
