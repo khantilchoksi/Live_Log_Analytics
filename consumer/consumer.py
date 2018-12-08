@@ -3,6 +3,7 @@ import time
 import sys
 sys.path.append("..")
 import conf as c
+import json
 
 # Kiniesis client
 client = boto3.client('kinesis', region_name=c.region_name)
@@ -28,16 +29,16 @@ while 'NextShardIterator' in record_response:
 
     # print(record_response)
     for r in record_response['Records']:
-        l = r['Data'].decode().split('$')
-        item = {
-            'endpoint': l[2],
-            'timestamp': l[1],
-            'ip': l[0],
-            'region': 'USA',
-            'response_code': l[3],
-            'response_time': l[4]
-        }
-        table.put_item(Item=item)
+        l = r['Data'].decode()
+        # item = {
+        #     'endpoint': l[2],
+        #     'timestamp': l[1],
+        #     'ip': l[0],
+        #     'region': 'USA',
+        #     'response_code': l[3],
+        #     'response_time': l[4]
+        # }
+        table.put_item(Item=json.loads(l))
         print(f"Partition Key: {r['PartitionKey']} ")
     # wait for 5 seconds
     time.sleep(1.5)
