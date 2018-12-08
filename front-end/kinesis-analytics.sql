@@ -67,5 +67,14 @@ CREATE OR REPLACE STREAM "HOME_STREAM" (logtime timestamp, ip VARCHAR(16), respo
     
 CREATE OR REPLACE PUMP "HOME_PUMP" AS INSERT INTO "HOME_STREAM" 
     SELECT STREAM LOCALTIMESTAMP, "ip", "response_code", "response_time", "endpoint", "COL_timestamp"
-        FROM "SOURCE_SQL_STREAM_001";
+        FROM "SOURCE_SQL_STREAM_001"
         WHERE "endpoint" LIKE 'home';
+
+// Presetnation
+CREATE OR REPLACE STREAM "HOME_STREAM" (logtime timestamp, ip VARCHAR(16), response_code integer, response_time real, endpoint varchar(32), 
+    COL_timestamp varchar(32), APPROXIMATE_ARRIVAL_TIME timestamp);
+    
+CREATE OR REPLACE PUMP "HOME_PUMP" AS INSERT INTO "HOME_STREAM" 
+    SELECT STREAM LOCALTIMESTAMP, "ip", "response_code", "response_time", "endpoint", "COL_timestamp", "APPROXIMATE_ARRIVAL_TIME"
+        FROM "SOURCE_SQL_STREAM_001"
+        WHERE (EXTRACT (  MINUTE FROM "APPROXIMATE_ARRIVAL_TIME"  ) - EXTRACT ( MINUTE FROM CURRENT_ROW_TIMESTAMP ) <= 15);
