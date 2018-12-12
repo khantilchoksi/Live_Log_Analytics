@@ -41,6 +41,8 @@ Screenshots:
 - [Producer & Consumer - Kafka](./Screenshot/Screenshot2.png)
 - [DynamoDB](./Screenshot/Screenshot1.png)
 
+- java -cp ./target/classes com.amazonaws.services.kinesis.samples.datavis.WebServer 80 ./wwwroot LiveLogAnalysis-LogsDynamoDBTable-45IZ0TGOHM5L us-west-2
+
 
 ----------------------------
 ### References:   
