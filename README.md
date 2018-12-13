@@ -46,8 +46,8 @@ Screenshots:
 ----------------------------------------------------------------------------------
 
 ## Final Report & Presentation
-- [Final Project Report](./Project_Reports/Group_6_Final_report.pdf)
-- [Presentation](./Project_Reports/Group_6_Final_Presenatation.pptx)
+- [Final Project Report](./Project_Reports/Group_6_Final_Report.pdf)
+- [Presentation](./Project_Reports/Group_6_Final_Presentation.pptx)
 
 
 ----------------------------
