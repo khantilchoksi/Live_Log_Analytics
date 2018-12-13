@@ -35,16 +35,13 @@ Steps to setup the Kinesis pipeline with DynamoDB
 - Configure the conf.py file depending on your requirements of input and output stream rates and how you want to visualize.  
 - Run the script on EC2 instance with Python3 installed.
 - Run setup.sh file to install pip3 and dependencies.  
-- python producer.py  
-- python consumer.py `<shard_id>`
+- Producer: `python ./datagenerator/producer.py`
+- Consumer: `python ./consumer/consumer.py <shard_id>`
 
 Screenshots:  
 - [Infrastructure](./Screenshot/Screenshot4.png)
 - [Producer & Consumer - Kafka](./Screenshot/Screenshot2.png)
 - [DynamoDB](./Screenshot/Screenshot1.png)
-
-- producer: python ./datagenerator/producer.py
-- Consumer: python ./consumer/consumer.py
 
 ----------------------------------------------------------------------------------
 
