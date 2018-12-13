@@ -43,6 +43,11 @@ Screenshots:
 
 - java -cp ./target/classes com.amazonaws.services.kinesis.samples.datavis.WebServer 80 ./wwwroot LiveLogAnalysis-LogsDynamoDBTable-45IZ0TGOHM5L us-west-2
 
+----------------------------------------------------------------------------------
+
+## Final Report
+[Click here to access Final Project Report](./Project_Reports/Group_6_Final_report.pdf)
+
 
 ----------------------------
 ### References:   
