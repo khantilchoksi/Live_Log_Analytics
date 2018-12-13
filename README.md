@@ -45,8 +45,9 @@ Screenshots:
 
 ----------------------------------------------------------------------------------
 
-## Final Report
-[Click here to access Final Project Report](./Project_Reports/Group_6_Final_report.pdf)
+## Final Report & Presentation
+- [Final Project Report](./Project_Reports/Group_6_Final_report.pdf)
+- [Presentation] (./Project_Reports/Group_6_Final_Presenatation.pptx)
 
 
 ----------------------------
