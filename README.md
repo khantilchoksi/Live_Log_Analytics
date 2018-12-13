@@ -23,7 +23,9 @@ Real-Time Web Server Log Processing
 ----------------------------------------------------------------------------------  
 
 ## Milestone Project Status Report (Quad Chart)  
-[Click Here to access Project Status Report](./Project_Reports/Project_Status_Report.pdf)  
+[Click Here to access Project Status Report](./Project_Reports/Project_Status_Report.pdf) 
+
+---------------------------------------------------------------------
 
 Steps to setup the Kinesis pipeline with DynamoDB  
 - Make sure you are in US-WEST-2 AWS Region  
@@ -41,7 +43,8 @@ Screenshots:
 - [Producer & Consumer - Kafka](./Screenshot/Screenshot2.png)
 - [DynamoDB](./Screenshot/Screenshot1.png)
 
-- java -cp ./target/classes com.amazonaws.services.kinesis.samples.datavis.WebServer 80 ./wwwroot LiveLogAnalysis-LogsDynamoDBTable-45IZ0TGOHM5L us-west-2
+- producer: python ./datagenerator/producer.py
+- Consumer: python ./consumer/consumer.py
 
 ----------------------------------------------------------------------------------
 
